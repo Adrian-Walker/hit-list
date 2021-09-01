@@ -4,25 +4,29 @@ class App extends Component {
     constructor() {
         super()
         this.state = {
-            target: {}
+            target: []
         }
     }
 
     componentDidMount() {
-        fetch("https://raw.githubusercontent.com/VSchool/vschool-api/master/static/hitlist.json/")
+        fetch("https://raw.githubusercontent.com/VSchool/vschool-api/master/static/hitlist.json")
             .then(response => response.json())
             .then(data => {
                 this.setState({
                     target: data
                 })
-                //error reads "VM788:1 Uncaught (in promise) SyntaxError: Unexpected token : in JSON at position 3"
             })
     }
-    //target.name not posing to page.
+    //target.name not posting to page.
     render() {
+        const assignments = this.state.target.map(person =>  )
         return (
             <div>
-                {this.state.target.name}
+
+                <ol>
+                    {this.state.target.name}
+                </ol>
+
             </div>
         )
     }
