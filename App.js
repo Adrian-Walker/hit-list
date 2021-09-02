@@ -4,7 +4,7 @@ class App extends Component {
     constructor() {
         super()
         this.state = {
-            target: []
+            target: ""
         }
     }
 
@@ -19,12 +19,13 @@ class App extends Component {
     }
     //target.name not posting to page.
     render() {
-        const assignments = this.state.target.map(person =>  )
+        const assignments = this.state.target.map(person => <li>{person}</li>)
         return (
             <div>
 
                 <ol>
                     {this.state.target.name}
+                    {assignments}
                 </ol>
 
             </div>
