@@ -4,27 +4,27 @@ class App extends Component {
     constructor() {
         super()
         this.state = {
-            target: ""
+            targets: []
         }
     }
 
     componentDidMount() {
         fetch("https://raw.githubusercontent.com/VSchool/vschool-api/master/static/hitlist.json")
             .then(response => response.json())
+            // .then(data1 => console.log(data1))
             .then(data => {
                 this.setState({
-                    target: data
+                    targets: data
                 })
             })
     }
-    //target.name not posting to page.
+
     render() {
-        const assignments = this.state.target.map(person => <li>{person}</li>)
+        const assignments = this.state.targets.map(target => <li class="listItem" key={target.name}>{target.name}</li>)
         return (
-            <div>
+            <div class="hitList">
 
                 <ol>
-                    {this.state.target.name}
                     {assignments}
                 </ol>
 
